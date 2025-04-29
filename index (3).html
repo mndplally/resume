@@ -1,0 +1,228 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandeep Lally</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: #f4f4f4;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 5px 0;
+            color: #666;
+        }
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px 0;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .job, .project {
+            margin-bottom: 20px;
+        }
+        .job h3, .project h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .job p, .project p {
+            margin: 5px 0;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #f4f4f4;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mandeep Lally</h1>
+        <p>Expert Azure Network Expert / Infrastructure Engineer/ Cloud Engineer</p>
+        <p>Email: [Your Email Address] | Phone: [Your Phone Number] | LinkedIn: [Your LinkedIn Profile URL] | GitHub: [Your GitHub Profile URL]</p>
+    </header>
+    <nav>
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+    </nav>
+    <div class="container">
+        <section id="summary">
+            <h2>Summary</h2>
+            <p>Highly motivated Cloud Engineer with over 4 years of experience in architecting and managing cloud infrastructure, primarily in Azure with exposure to AWS. Expert in Infrastructure as Code using Terraform and holder of all major Azure certifications. Strong networking skills with expertise in Cisco ASA, Fortigate Firewall, Cisco Meraki, and Cisco Firewall Threat Defense. Proven ability to resolve complex issues and contribute to BAU and project teams.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Cloud Platforms:</strong> Microsoft Azure (Expert), Amazon Web Services (AWS)</li>
+                <li><strong>Infrastructure as Code:</strong> HashiCorp Terraform</li>
+                <li><strong>Operating Systems:</strong> Windows Server, Linux (Ubuntu, CentOS, RHEL)</li>
+                <li><strong>Networking:</strong> Cisco ASA, Fortigate Firewall, Sonicwall, Cisco Meraki, Routing & Switching (OSPF, BGP, VLANs), VPN, DNS, DHCP, TCP/IP</li>
+                <li><strong>Security:</strong> Network Security Groups (NSGs), Azure Security Center, Firewall Management, Vulnerability Scanning, Security Audits</li>
+                <li><strong>Azure Services:</strong> Virtual Machines, Azure Kubernetes Service (AKS), Azure Container Instances (ACI), Azure Functions, Azure Blob Storage, Azure Files, Azure Queues, Azure Tables, Azure Disks, Azure Virtual Network, Azure Load Balancer, Azure Application Gateway, Azure DNS, Azure Firewall, Azure VPN Gateway, Azure Active Directory, Azure AD Connect, Conditional Access</li>
+                <li><strong>AWS Services:</strong> EC2, S3, VPC, IAM</li>
+                <li><strong>Automation:</strong> Terraform, Ansible</li>
+                <li><strong>Monitoring:</strong> Azure Monitor, Azure Log Analytics, Azure Network Watcher, Backup Rader, Auvik</li>
+                <li><strong>Scripting:</strong> PowerShell, Bash, Python (Basic)</li>
+            </ul>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="job">
+                <h3>Cloud Engineer - [Company Name]</h3>
+                <p>[City, State] | [Start Date] - [End Date]</p>
+                <ul>
+                    <li>Led design and maintenance of Azure infrastructure, ensuring high availability and security.</li>
+                    <li>Developed Terraform modules, reducing deployment time by 40% and minimizing errors.</li>
+                    <li>Configured network security with Azure NSGs, Azure Firewall, Fortigate, and Sonicwall.</li>
+                    <li>Managed Cisco ASA, Fortigate, Sonicwall, and Cisco Meraki equipment.</li>
+                    <li>Troubleshot complex Azure network and application issues, collaborating with teams.</li>
+                    <li>Implemented Azure Monitor and Log Analytics for proactive performance monitoring.</li>
+                    <li>Migrated on-premises workloads to Azure using Azure Migrate.</li>
+                    <li>Developed CI/CD pipelines with Azure DevOps for automated deployments.</li>
+                    <li>Optimized costs, reducing Azure spending by 15% while maintaining performance.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Cloud Engineer - [Previous Company Name]</h3>
+                <p>[City, State] | [Start Date] - [End Date]</p>
+                <ul>
+                    <li>Supported Azure and AWS environments, deploying VMs, storage, and networking.</li>
+                    <li>Implemented security policies per industry best practices.</li>
+                    <li>Used Terraform for infrastructure management across Azure and AWS.</li>
+                    <li>Gained experience with Azure Kubernetes Service (AKS) and Amazon EKS.</li>
+                    <li>Contributed to 24x7 support via on-call rotation.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="job">
+                <h3>[Your Degree] in [Your Major]</h3>
+                <p>[University Name], [City, State] | [Graduation Year]</p>
+            </div>
+        </section>
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Microsoft Certified: Azure Solutions Architect Expert</li>
+                <li>Microsoft Certified: Azure Security Engineer Associate</li>
+                <li>Microsoft Certified: Azure Network Engineer Associate</li>
+                <li>Microsoft Certified: Azure Administrator Associate</li>
+                <li>Microsoft Certified: Azure Developer Associate</li>
+                <li>Microsoft Certified: Cybersecurity Architect Expert</li>
+                <li>Microsoft Certified: Azure Virtual Desktop Specialty</li>
+                <li>Cisco Certified Network Professional (CCNP) - Enterprise</li>
+                <li>Cisco Certified Meraki Networking Associate (CMNA)</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Automated Azure Environment Deployment</h3>
+                <p>Developed a Terraform module to automatically deploy a complete Azure environment, including virtual network, subnets, security groups, and virtual machines.</p>
+            </div>
+            <div class="project">
+                <h3>Azure Migration Project</h3>
+                <p>Led migration of on-premises infrastructure to Azure using Azure Migrate, ensuring minimal downtime and seamless transition.</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Mandeep Lally. All rights reserved.</p>
+    </footer>
+</body>
+</html>
