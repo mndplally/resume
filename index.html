@@ -1,65 +1,28 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandeep Lally</title>
+    <title>Mandeep Lally - Infrastructure Engineer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
+            background-color: #f4f4f4;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
             padding: 20px;
         }
         header {
+            background: #004080;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            padding: 40px 0;
-            background: #f4f4f4;
         }
         header h1 {
             margin: 0;
@@ -67,162 +30,132 @@
         }
         header p {
             margin: 5px 0;
-            color: #666;
         }
-        nav {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+        .section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 20px 0;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        .job, .project {
-            margin-bottom: 20px;
-        }
-        .job h3, .project h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-        .job p, .project p {
-            margin: 5px 0;
+        .section h2 {
+            color: #004080;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
         }
         ul {
-            list-style-type: disc;
-            padding-left: 20px;
+            list-style: none;
+            padding: 0;
         }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #f4f4f4;
-            margin-top: 20px;
+        ul li {
+            margin: 10px 0;
+        }
+        ul li strong {
+            display: block;
+            font-size: 1.1em;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
             .container {
-                padding: 10px;
+                width: 95%;
+            }
+            header h1 {
+                font-size: 1.8em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mandeep Lally</h1>
-        <p>Expert Azure Network Expert / Infrastructure Engineer/ Cloud Engineer</p>
-        <p>Email: mndplally@gmail.com | LinkedIn: in/mandeep-lally | GitHub: https://github.com/mndplally</p>
+        <div class="container">
+            <h1>Mandeep Lally</h1>
+            <p>Infrastructure Engineer | mndplally@gmail.com | <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | <a href="https://github.com/yourusername">GitHub</a></p>
+        </div>
     </header>
-    <nav>
-        <a href="#summary">Summary</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#projects">Projects</a>
-    </nav>
     <div class="container">
-        <section id="summary">
-            <h2>Summary</h2>
-            <p>Highly motivated Engineer and Architect with over 4 years of experience in architecting and managing cloud infrastructure, primarily in Azure with exposure to AWS. Expert in Infrastructure as Code using Terraform and holder of all major Azure certifications. Strong networking skills with expertise in Cisco ASA, Fortigate Firewall, Cisco Meraki, and Cisco Firewall Threat Defense. Proven ability to resolve complex issues and contribute to BAU and project teams.</p>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Infrastructure Engineer with 8+ years of experience in optimizing system performance and ensuring seamless integration through automation and best practices. Proficient in Terraform, Azure networking, and enterprise networking, demonstrating strong analytical skills in troubleshooting complex issues and implementing effective monitoring solutions. Committed to maintaining comprehensive documentation and collaborating with cross-functional teams for operational excellence and continuous improvement.</p>
+        </div>
+        <div class="section">
+            <h2>Employment History</h2>
             <ul>
-                <li><strong>Cloud Platforms:</strong> Microsoft Azure (Expert), Amazon Web Services (AWS)</li>
-                <li><strong>Infrastructure as Code:</strong> HashiCorp Terraform</li>
-                <li><strong>Operating Systems:</strong> Windows Server, Linux (Ubuntu, CentOS, RHEL)</li>
-                <li><strong>Networking:</strong> Cisco ASA, Fortigate Firewall, Sonicwall, Cisco Meraki, Routing & Switching (OSPF, BGP, VLANs), VPN, DNS, DHCP, TCP/IP</li>
-                <li><strong>Security:</strong> Network Security Groups (NSGs), Azure Security Center, Firewall Management, Vulnerability Scanning, Security Audits</li>
-                <li><strong>Azure Services:</strong> Virtual Machines, Azure Kubernetes Service (AKS), Azure Container Instances (ACI), Azure Functions, Azure Blob Storage, Azure Files, Azure Queues, Azure Tables, Azure Disks, Azure Virtual Network, Azure Load Balancer, Azure Application Gateway, Azure DNS, Azure Firewall, Azure VPN Gateway, Azure Active Directory, Azure AD Connect, Conditional Access</li>
-                <li><strong>AWS Services:</strong> EC2, S3, VPC, IAM</li>
-                <li><strong>Automation:</strong> Terraform, Ansible</li>
-                <li><strong>Monitoring:</strong> Azure Monitor, Azure Log Analytics, Azure Network Watcher, Backup Rader, Auvik</li>
-                <li><strong>Scripting:</strong> PowerShell, Bash, Python (Basic)</li>
+                <li>
+                    <strong>Infrastructure Engineer, Orro Group, Melbourne</strong> — Feb 2021 - Present
+                    <p>Partner with cross-functional teams to implement best practices, resolve complex technical challenges, and ensure seamless system integration.</p>
+                    <p>Monitor infrastructure performance, conduct thorough system audits, and maintain comprehensive documentation for operational excellence.</p>
+                    <p>Streamline infrastructure deployment processes through automation, optimizing system performance and reducing operational bottlenecks.</p>
+                    <p>Documented cloud infrastructure designs, configurations, and operational procedures to facilitate knowledge sharing and ensure maintainability.</p>
+                    <p>Troubleshoot complex network and application issues in Azure, collaborating with project and operations teams to identify and resolve root causes.</p>
+                    <p>Implemented monitoring and alerting solutions using Backup Radar, Auvik, Azure Monitor, and Log Analytics to proactively identify and address performance issues.</p>
+                    <p>Participated in incident and problem management processes, ensuring timely resolution and implementing preventative measures.</p>
+                    <p>Deployed, managed, and maintained firewalls including FortiGate, SonicWALL, and Cisco Meraki equipment.</p>
+                    <p>Managed escalation processes for BAU and project teams, ensuring timely resolution through clear communication and coordination.</p>
+                    <p>Implemented cost optimization strategies, reducing Azure spending by 15% while maintaining performance and reliability.</p>
+                    <p>Served temporarily on the Change Advisory Board, evaluating and prioritizing change requests to align with business goals and minimize risks.</p>
+                </li>
+                <li>
+                    <strong>Network Engineer / Cloud Engineer, WanForce Technologies, India</strong> — Dec 2017 - Dec 2018
+                    <p>Addressed customer issues reported through phone, tickets, email, and client portals.</p>
+                    <p>Configured and troubleshooted switches, routers, and LAN setups.</p>
+                    <p>Analyzed and resolved VLAN, routing, IP addressing, and subnetting issues.</p>
+                    <p>Provided infrastructure performance reports to managers and Service Operations team.</p>
+                    <p>Configured and troubleshooted Cisco Catalyst switches (VTP, STP, HSRP, VLANs) and Cisco ASR routers (RIP, EIGRP, IPSEC, BGP, DNS, DHCP, OSPF).</p>
+                </li>
             </ul>
-        </section>
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="job">
-                <h3>Cloud Engineer - [Company Name]</h3>
-                <p>[City, State] | [Start Date] - [End Date]</p>
-                <ul>
-                    <li>Led design and maintenance of Azure infrastructure, ensuring high availability and security.</li>
-                    <li>Developed Terraform modules, reducing deployment time by 40% and minimizing errors.</li>
-                    <li>Configured network security with Azure NSGs, Azure Firewall, Fortigate, and Sonicwall.</li>
-                    <li>Managed Cisco ASA, Fortigate, Sonicwall, and Cisco Meraki equipment.</li>
-                    <li>Troubleshot complex Azure network and application issues, collaborating with teams.</li>
-                    <li>Implemented Azure Monitor and Log Analytics for proactive performance monitoring.</li>
-                    <li>Migrated on-premises workloads to Azure using Azure Migrate.</li>
-                    <li>Developed CI/CD pipelines with Azure DevOps for automated deployments.</li>
-                    <li>Optimized costs, reducing Azure spending by 15% while maintaining performance.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Cloud Engineer - [Previous Company Name]</h3>
-                <p>[City, State] | [Start Date] - [End Date]</p>
-                <ul>
-                    <li>Supported Azure and AWS environments, deploying VMs, storage, and networking.</li>
-                    <li>Implemented security policies per industry best practices.</li>
-                    <li>Used Terraform for infrastructure management across Azure and AWS.</li>
-                    <li>Gained experience with Azure Kubernetes Service (AKS) and Amazon EKS.</li>
-                    <li>Contributed to 24x7 support via on-call rotation.</li>
-                </ul>
-            </div>
-        </section>
-        <section id="education">
+        </div>
+        <div class="section">
             <h2>Education</h2>
-            <div class="job">
-                <h3>[Your Degree] in [Your Major]</h3>
-                <p>[University Name], [City, State] | [Graduation Year]</p>
-            </div>
-        </section>
-        <section id="certifications">
+            <ul>
+                <li>
+                    <strong>Master's Degree in Information and Communication Technology (ICT), La Trobe University, Melbourne</strong> — Nov 2018 - Jul 2020
+                    <p>Awarded the Golden Key International Honor Award (top 15% of academic achievers). WAM Score: 83 (Distinction Average).</p>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <strong>Migration of Checkpoint Firewall to FortiGate Firewall</strong>
+                    <p>Led migration of Checkpoint firewalls to a FortiGate HA pair in Azure, managing 30+ subscriptions and 30+ IPSEC tunnels. Developed test cases and runsheets for unit testing and pilot implementation.</p>
+                </li>
+                <li>
+                    <strong>Migration from Private Cloud to Azure Cloud</strong>
+                    <p>Designed and implemented migration of resources from private cloud to Azure, transitioning network infrastructure from MPLS to Meraki SD-WAN for enhanced scalability and performance.</p>
+                </li>
+                <li>
+                    <strong>Single Sign-On for Multiple Applications</strong>
+                    <p>Configured applications to integrate with Entra ID for identity management, enabling role-based access control (RBAC) for secure user permissions.</p>
+                </li>
+                <li>
+                    <strong>Implementation of Site-to-Site Tunnels using Virtual Network Gateways</strong>
+                    <p>Implemented Site-to-Site tunnels using Virtual Network Gateways for secure connections between on-premises networks and Azure virtual networks.</p>
+                </li>
+                <li>
+                    <strong>Zscaler Private Access</strong>
+                    <p>Configured applications on Zscaler Private Access for secure, seamless remote access while protecting internal resources.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
             <h2>Certifications</h2>
             <ul>
+                <li>Certified Meraki Networking Associate (CMNA)</li>
+                <li>Cisco Certified Networking Professional - Enterprise</li>
+                <li>Microsoft Certified: Cybersecurity Architect Expert</li>
+                <li>Microsoft Certified: Azure Network Engineer Associate</li>
                 <li>Microsoft Certified: Azure Solutions Architect Expert</li>
                 <li>Microsoft Certified: Azure Security Engineer Associate</li>
-                <li>Microsoft Certified: Azure Network Engineer Associate</li>
-                <li>Microsoft Certified: Azure Administrator Associate</li>
-                <li>Microsoft Certified: Azure Developer Associate</li>
-                <li>Microsoft Certified: Cybersecurity Architect Expert</li>
                 <li>Microsoft Certified: Azure Virtual Desktop Specialty</li>
-                <li>Cisco Certified Network Professional (CCNP) - Enterprise</li>
-                <li>Cisco Certified Meraki Networking Associate (CMNA)</li>
             </ul>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Automated Azure Environment Deployment</h3>
-                <p>Developed a Terraform module to automatically deploy a complete Azure environment, including virtual network, subnets, security groups, and virtual machines.</p>
-            </div>
-            <div class="project">
-                <h3>Azure Migration Project</h3>
-                <p>Led migration of on-premises infrastructure to Azure using Azure Migrate, ensuring minimal downtime and seamless transition.</p>
-            </div>
-        </section>
+        </div>
     </div>
-    <footer>
-        <p>© 2025 Mandeep Lally. All rights reserved.</p>
-    </footer>
 </body>
 </html>
