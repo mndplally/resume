@@ -4,44 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandeep Lally - Infrastructure Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+            color: #333;
             line-height: 1.6;
-            background-color: #f4f4f4;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            display: flex;
+            max-width: 1100px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            background: #fff;
             padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .main-content {
+            flex: 3;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
         }
         header {
-            background: #004080;
+            background: #003087;
             color: #fff;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
         }
         header h1 {
+            font-size: 2.2em;
             margin: 0;
-            font-size: 2.5em;
+            font-weight: 500;
         }
-        header p {
+        header .titles {
+            font-size: 1.1em;
+            font-weight: 300;
             margin: 5px 0;
         }
+        header p {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 0;
+            border: 2px solid #fff;
+        }
         .section {
-            background: #fff;
-            padding: 20px;
             margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 15px;
         }
         .section h2 {
-            color: #004080;
-            border-bottom: 2px solid #004080;
-            padding-bottom: 10px;
+            color: #003087;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #003087;
+            padding-bottom: 5px;
         }
         ul {
             list-style: none;
@@ -53,108 +83,136 @@
         ul li strong {
             display: block;
             font-size: 1.1em;
+            color: #003087;
         }
         a {
-            color: #004080;
+            color: #003087;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
-        @media (max-width: 600px) {
+        .download-btn {
+            display: inline-block;
+            background: #003087;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .download-btn:hover {
+            background: #0040b3;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
             .container {
-                width: 95%;
+                flex-direction: column;
+                width: 90%;
             }
             header h1 {
                 font-size: 1.8em;
+            }
+            header .titles {
+                font-size: 0.9em;
+            }
+            header img {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Mandeep Lally</h1>
-            <p>Infrastructure Engineer | mndplally@gmail.com | <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | <a href="https://github.com/yourusername">GitHub</a></p>
-        </div>
+        <img src="profile.jpg" alt="Mandeep Lally">
+        <h1>Mandeep Lally</h1>
+        <div class="titles">Expert Azure Network Engineer | Infrastructure Engineer | Security Engineer</div>
+        <p>mndplally@gmail.com | <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | <a href="https://github.com/yourusername">GitHub</a></p>
+        <a href="resume.pdf" class="download-btn">Download Resume</a>
     </header>
     <div class="container">
-        <div class="section">
-            <h2>Professional Summary</h2>
-            <p>Infrastructure Engineer with 8+ years of experience in optimizing system performance and ensuring seamless integration through automation and best practices. Proficient in Terraform, Azure networking, and enterprise networking, demonstrating strong analytical skills in troubleshooting complex issues and implementing effective monitoring solutions. Committed to maintaining comprehensive documentation and collaborating with cross-functional teams for operational excellence and continuous improvement.</p>
+        <div class="sidebar">
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <strong>Master's Degree in Information and Communication Technology (ICT), La Trobe University, Melbourne</strong> — Nov 2018 - Jul 2020
+                        <p>Awarded the Golden Key International Honor Award (top 15% of academic achievers). WAM Score: 83 (Distinction Average).</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Certified Meraki Networking Associate (CMNA)</li>
+                    <li>Cisco Certified Networking Professional - Enterprise</li>
+                    <li>Microsoft Certified: Cybersecurity Architect Expert</li>
+                    <li>Microsoft Certified: Azure Network Engineer Associate</li>
+                    <li>Microsoft Certified: Azure Solutions Architect Expert</li>
+                    <li>Microsoft Certified: Azure Security Engineer Associate</li>
+                    <li>Microsoft Certified: Azure Virtual Desktop Specialty</li>
+                </ul>
+            </div>
         </div>
-        <div class="section">
-            <h2>Employment History</h2>
-            <ul>
-                <li>
-                    <strong>Infrastructure Engineer, Orro Group, Melbourne</strong> — Feb 2021 - Present
-                    <p>Partner with cross-functional teams to implement best practices, resolve complex technical challenges, and ensure seamless system integration.</p>
-                    <p>Monitor infrastructure performance, conduct thorough system audits, and maintain comprehensive documentation for operational excellence.</p>
-                    <p>Streamline infrastructure deployment processes through automation, optimizing system performance and reducing operational bottlenecks.</p>
-                    <p>Documented cloud infrastructure designs, configurations, and operational procedures to facilitate knowledge sharing and ensure maintainability.</p>
-                    <p>Troubleshoot complex network and application issues in Azure, collaborating with project and operations teams to identify and resolve root causes.</p>
-                    <p>Implemented monitoring and alerting solutions using Backup Radar, Auvik, Azure Monitor, and Log Analytics to proactively identify and address performance issues.</p>
-                    <p>Participated in incident and problem management processes, ensuring timely resolution and implementing preventative measures.</p>
-                    <p>Deployed, managed, and maintained firewalls including FortiGate, SonicWALL, and Cisco Meraki equipment.</p>
-                    <p>Managed escalation processes for BAU and project teams, ensuring timely resolution through clear communication and coordination.</p>
-                    <p>Implemented cost optimization strategies, reducing Azure spending by 15% while maintaining performance and reliability.</p>
-                    <p>Served temporarily on the Change Advisory Board, evaluating and prioritizing change requests to align with business goals and minimize risks.</p>
-                </li>
-                <li>
-                    <strong>Network Engineer / Cloud Engineer, WanForce Technologies, India</strong> — Dec 2017 - Dec 2018
-                    <p>Addressed customer issues reported through phone, tickets, email, and client portals.</p>
-                    <p>Configured and troubleshooted switches, routers, and LAN setups.</p>
-                    <p>Analyzed and resolved VLAN, routing, IP addressing, and subnetting issues.</p>
-                    <p>Provided infrastructure performance reports to managers and Service Operations team.</p>
-                    <p>Configured and troubleshooted Cisco Catalyst switches (VTP, STP, HSRP, VLANs) and Cisco ASR routers (RIP, EIGRP, IPSEC, BGP, DNS, DHCP, OSPF).</p>
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>Master's Degree in Information and Communication Technology (ICT), La Trobe University, Melbourne</strong> — Nov 2018 - Jul 2020
-                    <p>Awarded the Golden Key International Honor Award (top 15% of academic achievers). WAM Score: 83 (Distinction Average).</p>
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Projects</h2>
-            <ul>
-                <li>
-                    <strong>Migration of Checkpoint Firewall to FortiGate Firewall</strong>
-                    <p>Led migration of Checkpoint firewalls to a FortiGate HA pair in Azure, managing 30+ subscriptions and 30+ IPSEC tunnels. Developed test cases and runsheets for unit testing and pilot implementation.</p>
-                </li>
-                <li>
-                    <strong>Migration from Private Cloud to Azure Cloud</strong>
-                    <p>Designed and implemented migration of resources from private cloud to Azure, transitioning network infrastructure from MPLS to Meraki SD-WAN for enhanced scalability and performance.</p>
-                </li>
-                <li>
-                    <strong>Single Sign-On for Multiple Applications</strong>
-                    <p>Configured applications to integrate with Entra ID for identity management, enabling role-based access control (RBAC) for secure user permissions.</p>
-                </li>
-                <li>
-                    <strong>Implementation of Site-to-Site Tunnels using Virtual Network Gateways</strong>
-                    <p>Implemented Site-to-Site tunnels using Virtual Network Gateways for secure connections between on-premises networks and Azure virtual networks.</p>
-                </li>
-                <li>
-                    <strong>Zscaler Private Access</strong>
-                    <p>Configured applications on Zscaler Private Access for secure, seamless remote access while protecting internal resources.</p>
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Certified Meraki Networking Associate (CMNA)</li>
-                <li>Cisco Certified Networking Professional - Enterprise</li>
-                <li>Microsoft Certified: Cybersecurity Architect Expert</li>
-                <li>Microsoft Certified: Azure Network Engineer Associate</li>
-                <li>Microsoft Certified: Azure Solutions Architect Expert</li>
-                <li>Microsoft Certified: Azure Security Engineer Associate</li>
-                <li>Microsoft Certified: Azure Virtual Desktop Specialty</li>
-            </ul>
+        <div class="main-content">
+            <div class="section">
+                <h2>Professional Summary</h2>
+                <p>Infrastructure Engineer with 8+ years of experience in optimizing system performance and ensuring seamless integration through automation and best practices. Proficient in Terraform, Azure networking, and enterprise networking, demonstrating strong analytical skills in troubleshooting complex issues and implementing effective monitoring solutions. Committed to maintaining comprehensive documentation and collaborating with cross-functional teams for operational excellence and continuous improvement.</p>
+            </div>
+            <div class="section">
+                <h2>Employment History</h2>
+                <ul>
+                    <li>
+                        <strong>Infrastructure Engineer, Orro Group, Melbourne</strong> — Feb 2021 - Present
+                        <p>Partner with cross-functional teams to implement best practices, resolve complex technical challenges, and ensure seamless system integration.</p>
+                        <p>Monitor infrastructure performance, conduct thorough system audits, and maintain comprehensive documentation for operational excellence.</p>
+                        <p>Streamline infrastructure deployment processes through automation, optimizing system performance and reducing operational bottlenecks.</p>
+                        <p>Documented cloud infrastructure designs, configurations, and operational procedures to facilitate knowledge sharing and ensure maintainability.</p>
+                        <p>Troubleshoot complex network and application issues in Azure, collaborating with project and operations teams to identify and resolve root causes.</p>
+                        <p>Implemented monitoring and alerting solutions using Backup Radar, Auvik, Azure Monitor, and Log Analytics to proactively identify and address performance issues.</p>
+                        <p>Participated in incident and problem management processes, ensuring timely resolution and implementing preventative measures.</p>
+                        <p>Deployed, managed, and maintained firewalls including FortiGate, SonicWALL, and Cisco Meraki equipment.</p>
+                        <p>Managed escalation processes for BAU and project teams, ensuring timely resolution through clear communication and coordination.</p>
+                        <p>Implemented cost optimization strategies, reducing Azure spending by 15% while maintaining performance and reliability.</p>
+                        <p>Served temporarily on the Change Advisory Board, evaluating and prioritizing change requests to align with business goals and minimize risks.</p>
+                    </li>
+                    <li>
+                        <strong>Network Engineer / Cloud Engineer, WanForce Technologies, India</strong> — Dec 2017 - Dec 2018
+                        <p>Addressed customer issues reported through phone, tickets, email, and client portals.</p>
+                        <p>Configured and troubleshooted switches, routers, and LAN setups.</p>
+                        <p>Analyzed and resolved VLAN, routing, IP addressing, and subnetting issues.</p>
+                        <p>Provided infrastructure performance reports to managers and Service Operations team.</p>
+                        <p>Configured and troubleshooted Cisco Catalyst switches (VTP, STP, HSRP, VLANs) and Cisco ASR routers (RIP, EIGRP, IPSEC, BGP, DNS, DHCP, OSPF).</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Projects</h2>
+                <ul>
+                    <li>
+                        <strong>Migration of Checkpoint Firewall to FortiGate Firewall</strong>
+                        <p>Led migration of Checkpoint firewalls to a FortiGate HA pair in Azure, managing 30+ subscriptions and 30+ IPSEC tunnels. Developed test cases and runsheets for unit testing and pilot implementation.</p>
+                    </li>
+                    <li>
+                        <strong>Migration from Private Cloud to Azure Cloud</strong>
+                        <p>Designed and implemented migration of resources from private cloud to Azure, transitioning network infrastructure from MPLS to Meraki SD-WAN for enhanced scalability and performance.</p>
+                    </li>
+                    <li>
+                        <strong>Single Sign-On for Multiple Applications</strong>
+                        <p>Configured applications to integrate with Entra ID for identity management, enabling role-based access control (RBAC) for secure user permissions.</p>
+                    </li>
+                    <li>
+                        <strong>Implementation of Site-to-Site Tunnels using Virtual Network Gateways</strong>
+                        <p>Implemented Site-to-Site tunnels using Virtual Network Gateways for secure connections between on-premises networks and Azure virtual networks.</p>
+                    </li>
+                    <li>
+                        <strong>Zscaler Private Access</strong>
+                        <p>Configured applications on Zscaler Private Access for secure, seamless remote access while protecting internal resources.</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
