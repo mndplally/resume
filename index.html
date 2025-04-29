@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandeep Lally - Infrastructure Engineer</title>
+    <title>Mandeep Lally - Expert Azure Network Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <style>
         * {
             margin: 0;
@@ -13,206 +21,184 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            background: #f7f7f7;
+            color: #2d2d2d;
+            line-height: 1.7;
         }
         .container {
-            display: flex;
-            max-width: 1100px;
-            margin: 20px auto;
-            gap: 20px;
-        }
-        .sidebar {
-            flex: 1;
+            max-width: 800px;
+            margin: 30px auto;
             background: #fff;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-        }
-        .main-content {
-            flex: 3;
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
+            padding: 30px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
         }
         header {
-            background: #003087;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+            text-align: left;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #002060;
         }
         header h1 {
             font-size: 2.2em;
-            margin: 0;
             font-weight: 500;
+            color: #002060;
         }
-        header .titles {
+        header .contact-info {
             font-size: 1.1em;
-            font-weight: 300;
-            margin: 5px 0;
+            color: #2d2d2d;
+            margin-top: 8px;
         }
-        header p {
-            margin: 10px 0;
-            font-size: 1em;
+        .download-btn {
+            display: inline-block;
+            background: #002060;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-size: 0.9em;
+            text-decoration: none;
         }
-        header img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 10px 0;
-            border: 2px solid #fff;
+        .download-btn:hover {
+            background: #003087;
+        }
+        .download-note {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 8px;
         }
         .section {
-            margin: 20px 0;
-            padding: 15px;
+            margin: 25px 0;
         }
         .section h2 {
-            color: #003087;
             font-size: 1.6em;
+            font-weight: 500;
+            color: #002060;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .section h3 {
+            font-size: 1.3em;
+            font-weight: 500;
+            color: #2d2d2d;
+            margin: 15px 0 8px;
+        }
+        .section .job-title {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: #2d2d2d;
+            margin-bottom: 5px;
+        }
+        .section .job-details {
+            font-size: 0.95em;
+            color: #666;
             margin-bottom: 10px;
-            border-bottom: 2px solid #003087;
-            padding-bottom: 5px;
         }
         ul {
             list-style: none;
             padding: 0;
         }
         ul li {
-            margin: 10px 0;
+            margin: 8px 0;
+            font-size: 0.95em;
         }
-        ul li strong {
-            display: block;
-            font-size: 1.1em;
-            color: #003087;
+        .skills-list {
+            font-size: 0.95em;
+            color: #2d2d2d;
+        }
+        .education p {
+            font-size: 0.95em;
+            color: #2d2d2d;
         }
         a {
-            color: #003087;
+            color: #002060;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
-        .download-btn {
-            display: inline-block;
-            background: #003087;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 4px;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        .download-btn:hover {
-            background: #0040b3;
-            text-decoration: none;
-        }
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
                 width: 90%;
+                padding: 20px;
             }
             header h1 {
                 font-size: 1.8em;
             }
-            header .titles {
-                font-size: 0.9em;
+            header .contact-info {
+                font-size: 1em;
             }
-            header img {
-                width: 80px;
-                height: 80px;
+            .section h2 {
+                font-size: 1.4em;
+            }
+            .section h3 {
+                font-size: 1.1em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="profile.jpg" alt="Mandeep Lally">
-        <h1>Mandeep Lally</h1>
-        <div class="titles">Expert Azure Network Engineer | Infrastructure Engineer | Security Engineer</div>
-        <p>mndplally@gmail.com | <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | <a href="https://github.com/yourusername">GitHub</a></p>
-        <a href="resume.pdf" class="download-btn">Download Resume</a>
-    </header>
     <div class="container">
-        <div class="sidebar">
-            <div class="section">
-                <h2>Education</h2>
-                <ul>
-                    <li>
-                        <strong>Master's Degree in Information and Communication Technology (ICT), La Trobe University, Melbourne</strong> — Nov 2018 - Jul 2020
-                        <p>Awarded the Golden Key International Honor Award (top 15% of academic achievers). WAM Score: 83 (Distinction Average).</p>
-                    </li>
-                </ul>
+        <header>
+            <h1>Mandeep Lally</h1>
+            <div class="contact-info">
+                mndplally@gmail.com | Melbourne | 
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> | 
+                <a href="https://github.com/yourusername">GitHub</a>
             </div>
-            <div class="section">
-                <h2>Certifications</h2>
-                <ul>
-                    <li>Certified Meraki Networking Associate (CMNA)</li>
-                    <li>Cisco Certified Networking Professional - Enterprise</li>
-                    <li>Microsoft Certified: Cybersecurity Architect Expert</li>
-                    <li>Microsoft Certified: Azure Network Engineer Associate</li>
-                    <li>Microsoft Certified: Azure Solutions Architect Expert</li>
-                    <li>Microsoft Certified: Azure Security Engineer Associate</li>
-                    <li>Microsoft Certified: Azure Virtual Desktop Specialty</li>
-                </ul>
-            </div>
+            <a href="resume.pdf" class="download-btn" onclick="gtag('event', 'download_resume', {'event_category': 'Resume', 'event_label': 'PDF Download'});">Download Resume</a>
+            
+        </header>
+        <div class="section">
+            <h2>Experience</h2>
+            <h3>Orro Group | Melbourne</h3>
+            <div class="job-title">Expert Azure Network Engineer / Security Engineer</div>
+            <div class="job-details">02/2021 - Present</div>
+            <ul>
+                <li>Led the design, implementation, and maintenance of Azure cloud infrastructure for multiple projects, ensuring high availability, scalability, and security.</li>
+                <li>Developed and maintained Terraform modules for automating the deployment and configuration of Azure resources, reducing deployment time by 40% and minimizing errors.</li>
+                <li>Configured and managed network security using Azure Network Security Groups, Azure Firewall, and integrated third-party security solutions (FortiGate Firewall, SonicWALL) to protect sensitive data and applications.</li>
+                <li>Managed and maintained Cisco ASA, FortiGate, SonicWALL, and Cisco Meraki equipment.</li>
+                <li>Troubleshot complex network and application issues in Azure, collaborating with development and operations teams to identify and resolve root causes.</li>
+                <li>Implemented monitoring and alerting solutions using Azure Monitor and Log Analytics to proactively identify and address performance issues.</li>
+                <li>Participated in incident management and problem management processes, ensuring timely resolution of issues and implementing preventative measures to avoid recurrence.</li>
+                <li>Collaborated with project teams to migrate on-premises workloads to Azure, providing technical guidance and support.</li>
+                <li>Documented cloud infrastructure designs, configurations, and operational procedures to facilitate knowledge sharing and ensure maintainability.</li>
+                <li>Regularly escalated issues to both BAU and project teams, ensuring timely resolution.</li>
+                <li>Successfully migrated on-premise infrastructure to Azure utilizing Azure Migrate and other migration tools.</li>
+                <li>Developed and maintained CI/CD pipelines using Azure DevOps for automated application deployments.</li>
+                <li>Implemented cost optimization strategies to reduce Azure spending by 15% while maintaining performance and reliability.</li>
+                <li>Planned implementation of network enhancements and upgrades.</li>
+                <li>Collaborated with teams in disaster planning, network backup and recovery process monitoring.</li>
+                <li>Checked rigorous application of information security policies, principles, and practices for continuous delivery of network services.</li>
+            </ul>
+            <h3>Wanforce Technologies | Chandigarh</h3>
+            <div class="job-title">Cloud Engineer and Network Engineer</div>
+            <div class="job-details">12/2017 - 12/2018</div>
+            <ul>
+                <li>Worked on both Azure and AWS environments, providing support and implementing infrastructure solutions.</li>
+                <li>Deployed and configured virtual machines, storage accounts, and networking resources in Azure and AWS.</li>
+                <li>Assisted with the development and implementation of security policies and procedures in accordance with industry best practices.</li>
+                <li>Participated in on-call rotation to provide 24x7 support for cloud infrastructure.</li>
+                <li>Utilized Terraform for infrastructure deployments and management across both Azure and AWS.</li>
+                <li>Gained experience with Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (EKS) for container orchestration.</li>
+                <li>Contributed to the documentation of cloud infrastructure and operational procedures.</li>
+                <li>Reduced server downtime by proactively monitoring cloud resources and addressing potential issues before they escalated.</li>
+                <li>Used metrics to monitor application and infrastructure performance.</li>
+                <li>Assisted in migration projects from on-premises data centers to cloud environments, ensuring minimal disruption to business operations.</li>
+                <li>Provided technical support to internal stakeholders, diagnosing and resolving complex issues related to the organization's cloud environment.</li>
+                <li>Enhanced cloud infrastructure efficiency by implementing advanced automation techniques and tools.</li>
+            </ul>
         </div>
-        <div class="main-content">
-            <div class="section">
-                <h2>Professional Summary</h2>
-                <p>Infrastructure Engineer with 8+ years of experience in optimizing system performance and ensuring seamless integration through automation and best practices. Proficient in Terraform, Azure networking, and enterprise networking, demonstrating strong analytical skills in troubleshooting complex issues and implementing effective monitoring solutions. Committed to maintaining comprehensive documentation and collaborating with cross-functional teams for operational excellence and continuous improvement.</p>
-            </div>
-            <div class="section">
-                <h2>Employment History</h2>
-                <ul>
-                    <li>
-                        <strong>Infrastructure Engineer, Orro Group, Melbourne</strong> — Feb 2021 - Present
-                        <p>Partner with cross-functional teams to implement best practices, resolve complex technical challenges, and ensure seamless system integration.</p>
-                        <p>Monitor infrastructure performance, conduct thorough system audits, and maintain comprehensive documentation for operational excellence.</p>
-                        <p>Streamline infrastructure deployment processes through automation, optimizing system performance and reducing operational bottlenecks.</p>
-                        <p>Documented cloud infrastructure designs, configurations, and operational procedures to facilitate knowledge sharing and ensure maintainability.</p>
-                        <p>Troubleshoot complex network and application issues in Azure, collaborating with project and operations teams to identify and resolve root causes.</p>
-                        <p>Implemented monitoring and alerting solutions using Backup Radar, Auvik, Azure Monitor, and Log Analytics to proactively identify and address performance issues.</p>
-                        <p>Participated in incident and problem management processes, ensuring timely resolution and implementing preventative measures.</p>
-                        <p>Deployed, managed, and maintained firewalls including FortiGate, SonicWALL, and Cisco Meraki equipment.</p>
-                        <p>Managed escalation processes for BAU and project teams, ensuring timely resolution through clear communication and coordination.</p>
-                        <p>Implemented cost optimization strategies, reducing Azure spending by 15% while maintaining performance and reliability.</p>
-                        <p>Served temporarily on the Change Advisory Board, evaluating and prioritizing change requests to align with business goals and minimize risks.</p>
-                    </li>
-                    <li>
-                        <strong>Network Engineer / Cloud Engineer, WanForce Technologies, India</strong> — Dec 2017 - Dec 2018
-                        <p>Addressed customer issues reported through phone, tickets, email, and client portals.</p>
-                        <p>Configured and troubleshooted switches, routers, and LAN setups.</p>
-                        <p>Analyzed and resolved VLAN, routing, IP addressing, and subnetting issues.</p>
-                        <p>Provided infrastructure performance reports to managers and Service Operations team.</p>
-                        <p>Configured and troubleshooted Cisco Catalyst switches (VTP, STP, HSRP, VLANs) and Cisco ASR routers (RIP, EIGRP, IPSEC, BGP, DNS, DHCP, OSPF).</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="section">
-                <h2>Projects</h2>
-                <ul>
-                    <li>
-                        <strong>Migration of Checkpoint Firewall to FortiGate Firewall</strong>
-                        <p>Led migration of Checkpoint firewalls to a FortiGate HA pair in Azure, managing 30+ subscriptions and 30+ IPSEC tunnels. Developed test cases and runsheets for unit testing and pilot implementation.</p>
-                    </li>
-                    <li>
-                        <strong>Migration from Private Cloud to Azure Cloud</strong>
-                        <p>Designed and implemented migration of resources from private cloud to Azure, transitioning network infrastructure from MPLS to Meraki SD-WAN for enhanced scalability and performance.</p>
-                    </li>
-                    <li>
-                        <strong>Single Sign-On for Multiple Applications</strong>
-                        <p>Configured applications to integrate with Entra ID for identity management, enabling role-based access control (RBAC) for secure user permissions.</p>
-                    </li>
-                    <li>
-                        <strong>Implementation of Site-to-Site Tunnels using Virtual Network Gateways</strong>
-                        <p>Implemented Site-to-Site tunnels using Virtual Network Gateways for secure connections between on-premises networks and Azure virtual networks.</p>
-                    </li>
-                    <li>
-                        <strong>Zscaler Private Access</strong>
-                        <p>Configured applications on Zscaler Private Access for secure, seamless remote access while protecting internal resources.</p>
-                    </li>
-                </ul>
-            </div>
+        <div class="section">
+            <h2>Skills</h2>
+            <p class="skills-list">Time Management, Multitasking, Self-Motivation, Network Documentation Development, Attention to Detail, Microsoft Azure, Linux, AWS, Firewalls, BGP, Cisco Meraki</p>
+        </div>
+        <div class="section">
+            <h2>Education</h2>
+            <h3>La Trobe University | Melbourne</h3>
+            <div class="job-title">Master's in Information Technology</div>
+            <div class="job-details">07/2020</div>
+            <p>Awarded the Golden Key International Honor Award (top 15% of academic achievers). WAM Score: 83 (Distinction Average).</p>
         </div>
     </div>
 </body>
